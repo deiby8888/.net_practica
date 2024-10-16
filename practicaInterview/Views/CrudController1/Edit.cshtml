@@ -1,0 +1,39 @@
+﻿@model ClientModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        recovery password
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" asp-controller="CrudController1" method="post">
+
+            <input asp-for="id_user" type="hidden" class="form-control">
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input asp-for="newPassword"  type="password" class="form-control">
+                <span asp-validation-for="newPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm password</label>
+                <input asp-for="confir" type="password" class="form-control">
+                <span asp-validation-for="confir" class="text-danger"></span>
+            </div>
+
+            @if (ViewBag.errorMessage != null)
+            {
+                <div class="text-danger m-10">@ViewBag.ErrorMessage</div>
+                <hr />
+            }
+
+            <button type="submit" class="btn btn-primary">done</button>
+            <a asp-action="Listar" asp-controller="CrudController1" class="btn btn-warning">see clients</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model bookModel
+@{
+    ViewData["Title"] = "registerBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        create book
+    </div>
+    <div class="card-body">
+        <form asp-action="registerBook" asp-controller="CrudController1" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="nombre" type="text" class="form-control">
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripcion</label>
+                <input asp-for="descripcion" type="text" class="form-control">
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+
+            <select class="form-select" asp-for="id_user" id="selectAutor">
+                <option value="" selected disabled>select an autor</option>
+            </select>
+            <span asp-validation-for="id_user" class="text-danger"></span>
+            <br />
+
+            @if (ViewBag.errorMessage != null)
+            {
+                <div class="text-danger m-10">@ViewBag.ErrorMessage</div>
+                <hr />
+            }
+
+            <button type="submit" class="btn btn-primary">creat book</button>
+        </form>
+    </div>
+</div>
+
+<script src="~/js/registerBook.js"></script>
+
+

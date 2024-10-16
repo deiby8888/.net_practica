@@ -1,0 +1,37 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Log in
+    </div>
+    <div class="card-body">
+        <form asp-action="Login" asp-controller="CrudController1" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input asp-for="email" type="email" class="form-control">
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input asp-for="userPassword" type="password" class="form-control">
+                <span asp-validation-for="userPassword" class="text-danger"></span>
+            </div>
+
+            @if (ViewBag.errorMessage != null)
+            {
+                <div class="text-danger m-10">@ViewBag.ErrorMessage</div>
+                <hr />
+            }
+
+            <button type="submit" class="btn btn-primary">Log in</button>
+            <a asp-action="Register" asp-controller="CrudController1" class="btn btn-warning">Sign up</a>
+        </form>
+    </div>
+</div>
+

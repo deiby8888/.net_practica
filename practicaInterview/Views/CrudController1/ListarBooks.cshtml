@@ -1,0 +1,41 @@
+﻿@model List<bookModel>
+@{
+    ViewData["Title"] = "ListarBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="RegisterBook" asp-controller="CrudController1" class="btn btn-success">register new book</a>
+<a asp-action="Listar" asp-controller="CrudController1" class="btn btn-success">volver</a>
+
+<hr />
+<div class="card">
+    <div class="card-header">
+        ListarBooks
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id_book</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>autor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id_book</td>
+                        <td>@item.nombre</td>
+                        <td>@item.descripcion</td>
+                        <td>@item.autor</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

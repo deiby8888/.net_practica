@@ -1,0 +1,23 @@
+﻿@model ClientModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Delete
+    </div>
+    <div class="card-body">
+        <form asp-action="Delete" asp-controller="CrudController1" method="post">
+
+            <input asp-for="id_user" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar a: @Html.DisplayTextFor(m => m.userName) ?
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="listar" asp-controller="CrudController1" class="btn btn-warning">lista</a>
+        </form>
+    </div>
+</div>

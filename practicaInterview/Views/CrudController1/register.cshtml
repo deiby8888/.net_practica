@@ -1,0 +1,48 @@
+﻿@model ClientModel
+@{
+    ViewData["Title"] = "register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Sign up
+    </div>
+    <div class="card-body">
+        <form asp-action="register" asp-controller="CrudController1" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User name</label>
+                <input asp-for="userName" type="text" class="form-control">
+                <span asp-validation-for="userName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input asp-for="email" type="email" class="form-control">
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input asp-for="userPassword" type="password" class="form-control">
+                <span asp-validation-for="userPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm password</label>
+                <input asp-for="confir" type="password" class="form-control">
+                <span asp-validation-for="confir" class="text-danger"></span>
+            </div>
+
+            @if (ViewBag.errorMessage != null)
+            {
+                <div class="text-danger m-10">@ViewBag.ErrorMessage</div>
+                <hr />
+            }
+
+            <button type="submit" class="btn btn-primary">sign up</button>
+            <a asp-action="Login" asp-controller="CrudController1" class="btn btn-warning">Log in</a>
+        </form>
+    </div>
+</div>
+
